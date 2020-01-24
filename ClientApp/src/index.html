@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ClientApp</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root></app-root>
+
+  <article class="instructions">
+    <h1>Angular Issue Reproduction Info</h1>
+  <ul>
+    <li><b>Step-by-step instructions</b>
+      <ul>
+        <li>Step 1: Click the "Search" link at the top. You will see that the "TestComponent" loads in the router outlet.</li>
+        <li>Step 2: un-comment the extra css file in angular.json styles array (on this repro the app does not build, but on my computer it does build. And renders the page using the newly added css</li>
+        <li>Step 3: would be to click the "Search" link again. In which case the compiler would output:<br><pre>
+  [HttpException]: The controller for path &#39;/search&#39; was not found or does not implement IController.
+     at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+     at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+     at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+     at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+     at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+     at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+  </pre></li>
+      </ul>
+    </li>
+    <li><b>Expected and Actual behavior.</b>
+      <ul>
+        <li>Expected: routing should not break when added external scss files.</li>
+        <li>Actual: routing breaks.</li>
+      </ul>
+    </li>
+  </ul>
+  </div>
+  </article>
+
+</body>
+</html>
